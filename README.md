@@ -1,88 +1,37 @@
-# vue-admin-template
-
-English | [简体中文](./README-zh.md)
-
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
-
-**Live demo:** http://panjiachen.github.io/vue-admin-template
-
-
-**The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0), it does not rely on `vue-cli`**
-
-<p align="center">
-  <b>SPONSORED BY</b>
-</p>
-<p align="center">
-   <a href="https://finclip.com?from=vue_element" title="FinClip" target="_blank">
-      <img height="200px" src="https://gitee.com/panjiachen/gitee-cdn/raw/master/vue%E8%B5%9E%E5%8A%A9.png" title="FinClip">
-   </a>
-</p>
+# 茶语
 
 ## Build Setup
 
 ```bash
 # clone the project
-git clone https://github.com/PanJiaChen/vue-admin-template.git
+git clone git@github.com:jieye12/tea.git
 
 # enter the project directory
-cd vue-admin-template
+cd tea
 
 # install dependency
-npm install
+npm install/pnpm install
 
 # develop
-npm run dev
+npm run dev/pnpm dev
 ```
 
 This will automatically open http://localhost:9528
 
-## Build
-
-```bash
-# build for test environment
-npm run build:stage
-
-# build for production environment
-npm run build:prod
-```
-
-## Advanced
-
-```bash
-# preview the release environment effect
-npm run preview
-
-# preview the release environment effect + static resource analysis
-npm run preview -- --report
-
-# code format check
-npm run lint
-
-# code format check and auto fix
-npm run lint -- --fix
-```
-
-Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
 
 ## Demo
+![Home页](./imagesLink/home.png)
+![属性级情感分析页](./imagesLink/singleAnalysis.png)
+![属性级情感分析页](./imagesLink/batchAnalysis.png)
+![数据和算法效果可视化模块](./imagesLink/fineGrained.png)
+![数据和算法效果可视化模块](./imagesLink/dataing.png)
+![数据和算法效果可视化模块](./imagesLink/clustering.png)
+![属性级精选评论标签模块](./imagesLink/evaluate.png)
+![细粒度茶业推荐模块](./imagesLink/view2.png)
+![用户反馈信息模块](./imagesLink/view3.png)
 
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
 
-## Extra
 
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)
-
-For `typescript` version, you can use [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
-
-## Related Project
-
-- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-
-- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-
-- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
-
-- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
 
 ## Browsers support
 
