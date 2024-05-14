@@ -31,30 +31,6 @@ export const constantRoutes = [
       },
     ],
   },
-  // 问卷调查
-  // {
-  //   path: "/questionnaire_survey",
-  //   component: () => import("@/views/questionnaireSurvey/index.vue"),
-  //   name: "QuestionnaireSurvey",
-  //   meta: {
-  //     title: "问卷调查"
-  //   }
-  // },
-  // {
-  //   path: "/questionnaire_survey",
-  //   component: Layout,
-  //   redirect: "/questionnaire_survey",
-  //   name: "QuestionnaireSurvey",
-  //   meta: { title: "问卷调查模块", icon: "el-icon-s-home" },
-  //   children: [
-  //     {
-  //       path: "",
-  //       name: "Questionnaire_survey",
-  //       meta: { title: "问卷调查模块", icon: "el-icon-document-copy" },
-  //       component: () => import("@/views/questionnaireSurvey/index.vue"),
-  //     },
-  //   ],
-  // },
   //属性情感分析
   {
     path: "/analysis",
@@ -121,6 +97,7 @@ export const constantRoutes = [
       },
     ],
   },
+
   //评论
   {
     path: "/evaluate",
@@ -145,31 +122,24 @@ export const constantRoutes = [
     meta: { title: "细粒度茶叶推荐模块", icon: "el-icon-s-home" },
     children: [
       {
-        path: "",
+        path: "view2",
         name: "View2",
         meta: { title: "细粒度茶叶推荐模块", icon: "el-icon-bangzhu" },
         component: () => import("@/views/part4/index"),
       },
-      {
-        path: "buzhidao",
-        name: "Buzhidao",
-        hidden: true,
-        component: () => import("@/views/part4/buzhidao/Buzhidao"),
-        meta: { title: "--茶评--", icon: "el-icon-document-copy" },
-      },
     ],
   },
-  //用户反馈
+  // 用户反馈
   {
-    path: "/view3",
+    path: "/feedback",
     component: Layout,
-    redirect: "/view3",
-    name: "Views3",
+    redirect: "/feedback",
+    name: "Feedback",
     meta: { title: "用户反馈信息模块", icon: "el-icon-chat-dot-round" },
     children: [
       {
-        path: "",
-        name: "View3",
+        path: "feedback",
+        name: "Feedback",
         meta: { title: "用户反馈信息模块", icon: "el-icon-chat-dot-round" },
         component: () => import("@/views/part5/App"),
       },

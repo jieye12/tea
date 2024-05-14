@@ -3,7 +3,7 @@
     <div class="todo-container">
       <h1>用户反馈数据表</h1>
       <div class="add" style="text-align:right;margin:0 20px 20px 0;">
-          <el-button type="primary" @click="add()">添加反馈文本</el-button>
+        <el-button type="primary" @click="add()">添加反馈文本</el-button>
       </div>
       <el-dialog title="反馈文本" :visible.sync="visible" align="center">
         <el-form :model="form">
@@ -15,147 +15,146 @@
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-    <el-button @click="visible = false">取 消</el-button>
-    <el-button type="primary" @click="save()">确 定</el-button>
-  </div>
-</el-dialog>
+          <el-button @click="visible = false">取 消</el-button>
+          <el-button type="primary" @click="save()">确 定</el-button>
+        </div>
+      </el-dialog>
       <div class="todo-wrap">
         <el-table :data="tableData" style="width: 100%;background-color:red;" border>
-          <el-table-column prop="id"  label="索引"  width="100" align="center"></el-table-column>
-          <el-table-column prop="user" label="反馈用户"   align="center"></el-table-column>
-          <el-table-column prop="text" label="反馈文本"   align="left" :show-overflow-tooltip="true"></el-table-column>
-          <el-table-column prop="time" label="反馈时间"   align="center"></el-table-column>
+          <el-table-column prop="id" label="索引" width="100" align="center"></el-table-column>
+          <el-table-column prop="user" label="反馈用户" align="center"></el-table-column>
+          <el-table-column prop="text" label="反馈文本" align="left" :show-overflow-tooltip="true"></el-table-column>
+          <el-table-column prop="time" label="反馈时间" align="center"></el-table-column>
           <el-table-column label="操作" align="center" width="180">
             <template slot-scope="scope">
-              <el-button type="danger"
-          @click="handleDelete(scope.$index)">删除</el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+              <el-button type="danger" @click="handleDelete(scope.$index)">删除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { totalmem } from 'os'
-import MyFooter from './components/MyFooter.vue'
-import MyHeader from './components/MyHeader.vue'
-import MyList from './components/MyList.vue'
+// // import { totalmem } from 'os'
+// import MyFooter from './components/MyFooter.vue'
+// import MyHeader from './components/MyHeader.vue'
+// import MyList from './components/MyList.vue'
 export default {
-  name: 'App',
-  components: { MyFooter, MyHeader, MyList },
+  // name: 'App',
+  // components: { MyFooter, MyHeader, MyList },
   // 用于list与header交流
   data() {
     return {
-      visible:false,
+      visible: false,
       todos: JSON.parse(localStorage.getItem('todos')) || [],
       show3: false,
       form: {
-        user:"",
-        content:""
+        user: "",
+        content: ""
+      },
+      tableData: [
+        {
+          id: 1,
+          user: "张三",
+          text: "真好，系统体验良好，非常期待下一次体验。",
+          time: "2020.03.01",
         },
-      tableData:[
         {
-          id:1,
-          user:"张三",
-          text:"真好，系统体验良好，非常期待下一次体验。",
-          time:"2020.03.01",
+          id: 2,
+          user: "李四",
+          text: "整体会感觉良好，下次接着来。",
+          time: "2020.08.12",
         },
         {
-          id:2,
-          user:"李四",
-          text:"整体会感觉良好，下次接着来。",
-          time:"2020.08.12",
-        },        
-        {
-          id:3,
-          user:"王五",
-          text:"大多数的茶饮都很好喝，希望尝遍所有茶饮。",
-          time:"2021.01.01",
+          id: 3,
+          user: "王五",
+          text: "大多数的茶饮都很好喝，希望尝遍所有茶饮。",
+          time: "2021.01.01",
 
-        },        {
-          id:4,
-          user:"小刘",
-          text:"今天没有开门，感觉很糟，希望下次正常营业。",
-          time:"2022.05.20",
-
-        },        
-        {
-          id:5,
-          user:"gemi",
-          text:"期待大家一起来。",
-          time:"2022.11.01",
-        },
-        {
-          id:6,
-          user:"小天",
-          text:"不管别人怎么觉得，我觉得挺好喝的，我还要喝。",
-          time:"2022.11.01",
+        }, {
+          id: 4,
+          user: "小刘",
+          text: "今天没有开门，感觉很糟，希望下次正常营业。",
+          time: "2022.05.20",
 
         },
         {
-          id:7,
-          user:"铠甲勇士",
-          text:"一年的最后一天了，好好休息，来年接着努力。",
-          time:"2022.12.31",
+          id: 5,
+          user: "gemi",
+          text: "期待大家一起来。",
+          time: "2022.11.01",
+        },
+        {
+          id: 6,
+          user: "小天",
+          text: "不管别人怎么觉得，我觉得挺好喝的，我还要喝。",
+          time: "2022.11.01",
 
         },
         {
-          id:8,
-          user:"20000101",
-          text:"新年第一天，我要喝龙井",
-          time:"2023.01.01",
+          id: 7,
+          user: "铠甲勇士",
+          text: "一年的最后一天了，好好休息，来年接着努力。",
+          time: "2022.12.31",
 
         },
         {
-          id:9,
-          user:"2021",
-          text:"明早九点，有人一起去吗？",
-          time:"2023.02.01",
-        },
-        {
-          id:10,
-          user:"要去的喊我",
-          text:"组队一起来，有优惠奥",
-          time:"2024.03.21",
+          id: 8,
+          user: "20000101",
+          text: "新年第一天，我要喝龙井",
+          time: "2023.01.01",
 
         },
         {
-          id:11,
-          user:"天天来",
-          text:"普洱茶很好喝，就是有点贵，天天喝喝不起",
-          time:"2024.05.01",
+          id: 9,
+          user: "2021",
+          text: "明早九点，有人一起去吗？",
+          time: "2023.02.01",
+        },
+        {
+          id: 10,
+          user: "要去的喊我",
+          text: "组队一起来，有优惠奥",
+          time: "2024.03.21",
+
+        },
+        {
+          id: 11,
+          user: "天天来",
+          text: "普洱茶很好喝，就是有点贵，天天喝喝不起",
+          time: "2024.05.01",
 
         },
       ]
     }
   },
-  computed: {
-    tot() {
-      return this.todos.length
-    }
-  },
-  watch: {
-    todos: {
-      deep: true,
-      handler(value) {
-        localStorage.setItem('todos', JSON.stringify(value))
-      }
-    }
-  },
+  // computed: {
+  //   tot() {
+  //     return this.todos.length
+  //   }
+  // },
+  // watch: {
+  //   todos: {
+  //     deep: true,
+  //     handler(value) {
+  //       localStorage.setItem('todos', JSON.stringify(value))
+  //     }
+  //   }
+  // },
   methods: {
-    add(){
+    add() {
       this.visible = true;
     },
-    save(){
-      if(this.form.content){
+    save() {
+      if (this.form.content) {
         this.tableData.push(
           {
-            id:this.tableData.length+1,
-            user:this.form.user,
-            text:this.form.content,
-            time:"2024.05.24"
+            id: this.tableData.length + 1,
+            user: this.form.user,
+            text: this.form.content,
+            time: "2024.05.24"
           }
         )
         this.visible = false
@@ -165,17 +164,17 @@ export default {
           type: 'success'
         })
       }
-      else{
-          this.$message({
+      else {
+        this.$message({
           showClose: true,
           message: '文本不能为空',
           type: 'warning'
         })
       }
-      
+
     },
-    handleDelete(index){
-      this.tableData.splice(index,1)
+    handleDelete(index) {
+      this.tableData.splice(index, 1)
       // nextTick()
     },
     showit() {
@@ -241,7 +240,7 @@ export default {
 
     h1 {
       text-align: center;
-      margin:10px 0;
+      margin: 10px 0;
     }
 
     // .todo-wrap {
@@ -284,7 +283,7 @@ export default {
 /* base */
 body {
   // background-color: #E2E1E4;
-  background-color:#f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .btn {
